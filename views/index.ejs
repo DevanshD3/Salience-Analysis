@@ -20,9 +20,9 @@
       href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css" />
-    <title>Dashboard</title>
-    <link rel="icon" href="virus-face.svg" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Salience Analysis</title>
+    <link rel="icon" href="/assets/icon.jpeg" />
   </head>
   <body>
     <section class="landing-page">
@@ -33,10 +33,24 @@
           </ul>
         </nav>
       </section>
-      <form action="/" method="post" class="main-content">
-        <textarea name="text" cols="50" rows="10"></textarea>
-        <button type="submit" value="submit">Submit</button>
-      </form>
+      <div class="flex-both-sides">
+        <form action="/" method="post" class="main-content">
+          <textarea name="text" cols="50" rows="10"></textarea>
+          <button type="submit" value="submit">Submit</button>
+        </form>
+      </div>
+      <img src="/assets/long-arrow-bottom.png" alt="" class="arrow-image" />
+    </section>
+    <hr />
+    <div class="h1-main">
+      <h1 class="ha">Result</h1>
+    </div>
+    <section class="result">
+      <div class="result-box">
+        <div class="box">
+          <%= result %>
+        </div>
+      </div>
     </section>
 
     <script

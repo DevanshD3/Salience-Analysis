@@ -10,7 +10,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", {result: " SUBMIT TEXT TO GET RESULT!"});
 });
 
 app.post("/", (req, res) => {
@@ -18,7 +18,6 @@ app.post("/", (req, res) => {
 });
 
 app.get("/result", (req, res) => {
-  console.log(req.query.text);
   var dataToSend;
   const python = spawn("python", ["senti.py", req.query.text]);
 
@@ -29,7 +28,7 @@ app.get("/result", (req, res) => {
 
   python.on("close", (code) => {
     console.log(`child process close all stdio with code ${code}`);
-    res.render("final", {result: dataToSend});
+    res.render("index", {result: dataToSend});
   });
 });
 
