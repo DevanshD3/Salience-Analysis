@@ -1,3 +1,0 @@
-google-cloud-core
-google-cloud-datastore
-google-cloud-language
