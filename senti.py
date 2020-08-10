@@ -19,8 +19,8 @@ def language_analysis(text):
     return sentiment, entities
 
 
-# text = sys.argv[1]
-text = 'Artificial neural networks, usually simply called neural networks, or connectionist systems are computing systems vaguely inspired by the biological neural networks that constitute animal brains. The data structures and functionality of neural nets are designed to simulate associative memory.'
+text = sys.argv[1]
+# text = 'Artificial neural networks, usually simply called neural networks, or connectionist systems are computing systems vaguely inspired by the biological neural networks that constitute animal brains. The data structures and functionality of neural nets are designed to simulate associative memory.'
 items = []
 sentiment, entities = language_analysis(text)
 
