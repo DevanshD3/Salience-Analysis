@@ -3,7 +3,7 @@ from google.cloud import language
 from google.cloud.language import enums
 from google.cloud.language import types
 import os
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"sentiment-analysis-284609-a234a6af795c.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"sentiment-analysis-284609-a234a6af795c.json.json"
 
 
 def language_analysis(text):
@@ -19,21 +19,12 @@ def language_analysis(text):
     return sentiment, entities
 
 
-text = sys.argv[1]
-# text = 'Artificial neural networks, usually simply called neural networks, or connectionist systems are computing systems vaguely inspired by the biological neural networks that constitute animal brains. The data structures and functionality of neural nets are designed to simulate associative memory.'
+# text = sys.argv[1]
+text = 'Artificial neural networks, usually simply called neural networks, or connectionist systems are computing systems vaguely inspired by the biological neural networks that constitute animal brains. The data structures and functionality of neural nets are designed to simulate associative memory.'
 items = []
 sentiment, entities = language_analysis(text)
 
 dicti = {}
 for e in entities:
-    if e.name not in items:
-        items.append(e.name)
-        dicti[e.name] = 0
+    print(f'Word: {e.name}\nType: {e.type}\nSalience: {e.salience}\n')
 
-for i in items:
-    for e in entities:
-        if e.name == i:
-            dicti[i] += float(e.salience)
-
-for key_val in dicti.keys():
-    print(f'{key_val}: {dicti[key_val]}')
