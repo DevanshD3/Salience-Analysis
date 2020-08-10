@@ -19,13 +19,16 @@ app.post("/", (req, res) => {
 
 app.get("/result", (req, res) => {
   var dataToSend;
-  const python = spawn("python", ["senti.py", req.query.text]);
+  const python = spawn("python", ["./senti.py", req.query.text]);
 
   python.stdout.on("data", (data) => {
     console.log("Pipe data from python script ...");
     dataToSend = data.toString();
   });
 
+  python.stderr.on("data", (error) => {
+    console.log(`error: ${error}`);
+  });
   python.on("close", (code) => {
     console.log(`child process close all stdio with code ${code}`);
     res.render("index", {result: dataToSend});
