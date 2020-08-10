@@ -28,3 +28,4 @@ dicti = {}
 for e in entities:
     print(f'Word: {e.name}\nType: {e.type}\nSalience: {e.salience}\n')
 
+print(f'Sentiment\n{sentiment}')
